@@ -1,8 +1,8 @@
-alert('hello world');
+const spaces = document.querySelectorAll('.box')
 
-// things we need:
-// - event listeners to check for clicks which runs an update function
-// - an
+for (let i = 0; i < spaces.length; i++) {
+    spaces[i].addEventListener('click', drawsXO)
+}
 
 let grid = [[0,0,0],[0,0,0],[0,0,0]]
 let key = {'XXX': 'p1', 'OOO': 'p2'}
@@ -60,3 +60,7 @@ function checkGrid(grid) {
 }
 
 console.log(checkGrid(grid))
+
+function drawsXO() {
+    alert('click')
+}
