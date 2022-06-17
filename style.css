@@ -50,3 +50,17 @@ body {
     font-size: 12rem;
     border: 2px solid black;
 }
+
+@media screen and (max-device-width: 1024px) {
+    #mainBoard {
+        grid-template-columns: 125px 125px 125px;
+        grid-template-rows: 125px 125px 125px;
+    }
+}
+
+@media screen and (max-device-width: 450px) {
+    #mainBoard {
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+    }
+}
