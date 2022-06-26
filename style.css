@@ -34,8 +34,8 @@ body {
 
 #mainBoard {
     display: grid;
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 15rem 15rem 15rem;
+    grid-template-rows: 15rem 15rem 15rem;
     background: #999;
     overflow: auto;
     position: absolute;
@@ -51,16 +51,30 @@ body {
     border: 2px solid black;
 }
 
-@media screen and (max-device-width: 1024px) {
+@media screen and (max-device-width: 1440px) {
     #mainBoard {
-        grid-template-columns: 125px 125px 125px;
-        grid-template-rows: 125px 125px 125px;
+        grid-template-columns: 14.5rem 14.5rem 14.5rem;
+        grid-template-rows: 14.5rem 14.5rem 14.5rem;
+    }
+}
+
+@media screen and (max-device-width: 768px) {
+    #mainBoard {
+        grid-template-columns: 12rem 12rem 12rem;
+        grid-template-rows: 12rem 12rem 12rem;
     }
 }
 
 @media screen and (max-device-width: 450px) {
     #mainBoard {
-        grid-template-columns: 100px 100px 100px;
-        grid-template-rows: 100px 100px 100px;
+        grid-template-columns: 10rem 10rem 10rem;
+        grid-template-rows: 10rem 10rem 10rem;
+    }
+}
+
+@media screen and (max-device-width: 345px) {
+    #mainBoard {
+        grid-template-columns: 5rem 5rem 5rem;
+        grid-template-rows: 5rem 5rem 5rem;
     }
 }
