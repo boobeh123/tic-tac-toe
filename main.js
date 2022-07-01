@@ -4,7 +4,6 @@ class TicTacToe {
         this.spaces = document.querySelectorAll('.box')
         this.grid = [[0,0,0],[0,0,0],[0,0,0]];
         this.key = {'XXX': 'p1', 'OOO': 'p2'};
-        this.turn = 0;
         this.marker = 'X';
     }    
     
@@ -12,19 +11,27 @@ class TicTacToe {
     initialiseGame() {
         for (let i = 0; i < this.spaces.length; i++) {
             this.spaces[i].addEventListener('click', (e) => {
-                this.drawsXO(i);
+                this.checkIfBlank(i);
             })
         }
     }
 
+    checkIfBlank(num) { // if space is empty, call drawsXO(num)
+        if (this.spaces[num].textContent == '') {
+            this.drawsXO(num)
+        }
+    }
+
     drawsXO(num) {
-        this.spaces[num].textContent = this.marker;
+        this.spaces[num].textContent = this.marker
+        this.grid[Math.floor(num / 3)][num % 3] = this.marker
+        console.log(this.checksGrid(this.grid, this.key))
         this.marker == 'X' ? this.marker = 'O' : this.marker = 'X'
     }
 
     // Method that checks the grid before applying the player marker
     
-    checksGrid(grid) {
+    checksGrid(grid, key) {
         let remainingSpaces = 9
         for (let i = 0; i < grid.length; i++) {
             for (let j = 0; j < grid[i].length; j++) {
