@@ -5,6 +5,7 @@ class TicTacToe {
         this.grid = [[0,0,0],[0,0,0],[0,0,0]];
         this.key = {'XXX': 'p1', 'OOO': 'p2'};
         this.marker = 'X';
+        this.state = 'Next turn'
     }    
     
     // Methods
@@ -17,7 +18,7 @@ class TicTacToe {
     }
 
     checkIfBlank(num) { // if space is empty, call drawsXO(num)
-        if (this.spaces[num].textContent == '') {
+        if (this.spaces[num].textContent == '' && this.state == 'Next turn') {
             this.drawsXO(num)
         }
     }
@@ -25,12 +26,18 @@ class TicTacToe {
     drawsXO(num) {
         this.spaces[num].textContent = this.marker
         this.grid[Math.floor(num / 3)][num % 3] = this.marker
-        console.log(this.checksGrid(this.grid, this.key))
+        this.state = this.checksGrid(this.grid, this.key)
+        if (this.state == 'p1') {
+            alert('X wins')
+        } else if (this.state == 'p2') {
+            alert('O wins')
+        } else if (this.state == 'Draw') {
+            alert("It's a draw")
+        }
         this.marker == 'X' ? this.marker = 'O' : this.marker = 'X'
     }
 
     // Method that checks the grid before applying the player marker
-    
     checksGrid(grid, key) {
         let remainingSpaces = 9
         for (let i = 0; i < grid.length; i++) {
